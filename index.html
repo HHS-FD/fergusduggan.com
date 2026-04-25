@@ -1,6 +1,226 @@
 <!DOCTYPE html>
-<html>
-  <body style="margin:0;">
-    <img src="HoldingPage_01.jpg" style="width:100%;">
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fergus Duggan</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #fdf6ee;
+      --warm-brown: #3b2a1a;
+      --teal: #3a8c8c;
+      --teal-light: #d4eeee;
+      --amber: #c97c2e;
+      --text-muted: #7a6555;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background-color: var(--cream);
+      color: var(--warm-brown);
+      font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      overflow-x: hidden;
+    }
+
+    /* Subtle background texture */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse at 15% 20%, rgba(58,140,140,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 85% 80%, rgba(201,124,46,0.08) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .card {
+      position: relative;
+      z-index: 1;
+      background: rgba(255,252,247,0.92);
+      border: 1px solid rgba(58,140,140,0.18);
+      border-radius: 2rem;
+      max-width: 680px;
+      width: 100%;
+      padding: 3.5rem 3rem 3rem;
+      box-shadow:
+        0 4px 24px rgba(59,42,26,0.07),
+        0 1px 3px rgba(59,42,26,0.05);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      animation: fadeUp 0.8s ease both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .image-wrapper {
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #ffffff;
+      box-shadow:
+        0 0 0 6px var(--cream),
+        0 0 0 10px rgba(58,140,140,0.2);
+      animation: fadeUp 0.8s 0.1s ease both;
+      flex-shrink: 0;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center center;
+      display: block;
+    }
+
+    .content {
+      text-align: center;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+
+    .name {
+      font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+      font-weight: 300;
+      font-size: clamp(2rem, 6vw, 2.8rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--warm-brown);
+      margin-bottom: 0.35rem;
+    }
+
+    .title-tag {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      background: var(--teal-light);
+      padding: 0.3rem 0.9rem;
+      border-radius: 99px;
+      margin-bottom: 1.6rem;
+    }
+
+    .divider {
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--amber));
+      border-radius: 2px;
+      margin: 0 auto 1.6rem;
+    }
+
+    .bio {
+      font-size: 1.05rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: 480px;
+      margin: 0 auto 2.2rem;
+    }
+
+    .bio em {
+      font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+      font-style: italic;
+      color: var(--amber);
+      font-weight: 300;
+    }
+
+    .contact {
+      animation: fadeUp 0.8s 0.35s ease both;
+    }
+
+    .contact a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--warm-brown);
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      padding: 0.7rem 1.5rem;
+      border-radius: 99px;
+      transition: background 0.2s ease, transform 0.2s ease;
+    }
+
+    .contact a:hover {
+      background: var(--teal);
+      transform: translateY(-2px);
+    }
+
+    .contact a svg {
+      width: 15px;
+      height: 15px;
+      fill: currentColor;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: rgba(59,42,26,0.3);
+      letter-spacing: 0.04em;
+      text-align: center;
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+
+    @media (max-width: 480px) {
+      .card { padding: 2.5rem 1.5rem 2rem; }
+      .image-wrapper { width: 180px; height: 180px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div>
+    <div class="card">
+
+      <div class="image-wrapper">
+        <img src="HoldingPage_01.jpg" alt="A cartoon dinosaur at a computer — Fergus's mascot" />
+      </div>
+
+      <div class="content">
+        <h1 class="name">Fergus Duggan</h1>
+        <span class="title-tag">Art Director · Games Industry</span>
+        <div class="divider"></div>
+        <p class="bio">
+          Hi, I'm Fergus — an art director with <em>over two decades</em> of experience crafting worlds, characters, and visual stories in the games industry. That's a long time — but the best part has been working alongside ridiculously talented people from every corner of the world. Somehow they put up with me too.
+        </p>
+      </div>
+
+      <div class="contact">
+        <!-- Replace 'you@example.com' with your real email when ready -->
+        <a href="mailto:you@example.com">
+          <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+          </svg>
+          Get in touch
+        </a>
+      </div>
+
+    </div>
+
+    <footer>fergus duggan &nbsp;·&nbsp; © 2026</footer>
+  </div>
+
+</body>
 </html>
