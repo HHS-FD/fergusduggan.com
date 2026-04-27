@@ -100,6 +100,15 @@
     }
 
     /* ── Left — text ── */
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      inset: -2rem -3rem -2rem -2rem;
+      background: radial-gradient(ellipse at 30% 50%, rgba(255,248,240,0.97) 40%, rgba(255,248,240,0.7) 65%, transparent 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
     .hero-left {
       position: relative;
       z-index: 5;
@@ -309,7 +318,16 @@
         order: 1;
       }
 
-      .hero-left {
+      .hero-left::before {
+      content: '';
+      position: absolute;
+      inset: -2rem -3rem -2rem -2rem;
+      background: radial-gradient(ellipse at 30% 50%, rgba(255,248,240,0.97) 40%, rgba(255,248,240,0.7) 65%, transparent 100%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero-left {
         grid-column: auto;
         width: 100%;
       }
