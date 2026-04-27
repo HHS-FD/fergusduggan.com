@@ -100,21 +100,25 @@
     }
 
     /* ── Left — text ── */
-    .hero-left::before {
-      content: '';
-      position: absolute;
-      inset: -2rem -3rem -2rem -2rem;
-      background: radial-gradient(ellipse at 30% 50%, rgba(255,248,240,0.97) 40%, rgba(255,248,240,0.7) 65%, transparent 100%);
-      z-index: -1;
-      pointer-events: none;
-    }
-
     .hero-left {
       position: relative;
       z-index: 5;
       grid-column: 1 / -1;
       max-width: 560px;
       animation: slideUp 0.9s 0.1s cubic-bezier(0.16,1,0.3,1) both;
+    }
+
+    .text-glow {
+      position: absolute;
+      inset: -4rem -6rem -4rem -4rem;
+      background: radial-gradient(ellipse at 25% 45%, rgba(255,248,240,1) 35%, rgba(255,248,240,0.85) 55%, transparent 80%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-left > *:not(.text-glow) {
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
@@ -318,16 +322,7 @@
         order: 1;
       }
 
-      .hero-left::before {
-      content: '';
-      position: absolute;
-      inset: -2rem -3rem -2rem -2rem;
-      background: radial-gradient(ellipse at 30% 50%, rgba(255,248,240,0.97) 40%, rgba(255,248,240,0.7) 65%, transparent 100%);
-      z-index: -1;
-      pointer-events: none;
-    }
-
-    .hero-left {
+      .hero-left {
         grid-column: auto;
         width: 100%;
       }
@@ -356,6 +351,7 @@
     </div>
 
     <div class="hero-left">
+      <div class="text-glow"></div>
       <div class="eyebrow">Art Director · Games</div>
       <h1>
         Let's Make<br>
