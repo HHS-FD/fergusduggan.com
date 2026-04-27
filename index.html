@@ -78,22 +78,6 @@
       gap: 0;
     }
 
-    /* Left fade — keeps text readable over dino */
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(to right, 
-        rgba(255,248,240,1) 0%,
-        rgba(255,248,240,1) 25%,
-        rgba(255,248,240,0.85) 38%,
-        rgba(255,248,240,0.4) 52%,
-        transparent 68%
-      );
-      pointer-events: none;
-      z-index: 2;
-    }
-
     /* Warm glows */
     .glow-yellow {
       position: absolute;
@@ -122,6 +106,25 @@
       grid-column: 1 / -1;
       max-width: 560px;
       animation: slideUp 0.9s 0.1s cubic-bezier(0.16,1,0.3,1) both;
+    }
+
+    .text-glow {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-70%, -50%);
+      width: 700px;
+      height: 700px;
+      border-radius: 50%;
+      background: rgba(255,248,240,0.92);
+      filter: blur(60px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-left > *:not(.text-glow) {
+      position: relative;
+      z-index: 1;
     }
 
     .eyebrow {
@@ -354,6 +357,7 @@
     </div>
 
     <div class="hero-left">
+      <div class="text-glow"></div>
       <div class="eyebrow">Art Director · Games</div>
       <h1>
         Let's Make<br>
